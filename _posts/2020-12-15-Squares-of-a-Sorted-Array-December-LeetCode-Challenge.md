@@ -1,6 +1,6 @@
 ---
 layout: post
-title: December 2020 LeetCode Challenge - Day 15: Squares of a Sorted Array
+title: December 2020 LeetCode Challenge Day 15 - Squares of a Sorted Array
 ---
 
 I was chatting with a friend recently who mentioned that they were working their way through [LeetCode's December coding challenge](https://leetcode.com/discuss/general-discussion/655704/) which inspired me to check it out. I previously tricked myself into thinking that by _conducting_ interviews on a regular basis that I was keeping my coding interview skills sharp, but since the COVID-19 pandemic hit (eight? ...nine? months ago) my comapny hasn't been hiring. I'm probably a bit rusty. This challenge seems like a good way to force myself to spend a few minutes a day honing these skills.
