@@ -33,51 +33,52 @@ We're essentially left with two sorted sub-arrays (`[ descending .. 0 .. ascendi
 Here's my initial implementation:
 
 ```csharp
-public class Solution {
+public class Solution
+{
     public int[] SortedSquares(int[] nums)
     {
         if (nums.Length == 0)
             return nums;
-        
+
         // e.g. [16, 1]
         var descending = new List<int>();
         // e.g. [0, 9, 100]
         var ascending = new List<int>();
-        
+
         // Square our inputs and place them into the appropriate list based on their sign
         foreach (int n in nums)
         {
             int squared = n * n;
-            
+
             if (n < 0)
                 descending.Add(squared);
             else
                 ascending.Add(squared);
         }
-        
+
         // Our input only contained positive integers, just return them
         if (descending.Count == 0)
             return ascending.ToArray();
-        
+
         // Our input only contained negative integers, reverse and return them
         if (ascending.Count == 0)
         {
             descending.Reverse(); // sigh, this returns void
             return descending.ToArray();
         }
-        
+
         // Start from the end of the descending list
         var descIndex = descending.Count - 1;
         // and the beginning of the ascending list
         var ascIndex = 0;
-        
+
         // Merge together our two lists in ascending order
         for (int i = 0; i < nums.Length; i++)
         {
             // Determine if we've drained either of our lists
             bool ascendingRemaining = ascIndex < ascending.Count;
             bool descendingRemaining = descIndex >= 0;
-            
+
             if (ascendingRemaining && descendingRemaining)
             {
                 // Use the lesser of the two.
@@ -96,7 +97,7 @@ public class Solution {
                 }
                 continue;
             }
-            
+
             if (ascendingRemaining)
             {
                 nums[i] = ascending[ascIndex];
@@ -108,7 +109,7 @@ public class Solution {
                 descIndex--;
             }
         }
-        
+
         return nums;
     }
 }
